@@ -10,7 +10,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "*")
+@CrossOrigin(
+    origins = "*", 
+    allowedHeaders = {"Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"},
+    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS},
+    allowCredentials = "false" // origins "*" iken credentials genelde false olmalıdır
+)
 public class AppointmentController {
 
     @Autowired
